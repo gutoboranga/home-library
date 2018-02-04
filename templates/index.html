@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>Biblioteca</title>
+    <link rel="stylesheet" type="text/css" href="../style/main.css">
+    <link rel="stylesheet" type="text/css" href="../style/table.css">
+    <link rel="stylesheet" type="text/css" href="../style/menu.css">
+  </head>
+  <body>
+    
+    <div class="table-container">
+      <!-- <button onclick="require('./library.js')">clique aqui</button> -->
+      
+      <table id="table_header" class="table">
+        <tr>
+          <th>Título</th>
+          <th>Autor</th>
+        </tr>
+      </table>
+      
+      <table id="books_table" class="table">
+      </table>
+    </div>
+    
+    <!-- will populate the table -->
+    <script>
+      require('../scripts/build_table.js');
+    </script>
+    
+    <div class="menu-container">
+      <ul class="menu-ul">
+        <li class="menu-button">Filtrar</li>
+        <li class="menu-button">Ordenar</li>
+        <li class="menu-button">Adicionar</li>
+      </ul>
+    </div>
+    
+    <script>
+      // You can also require other files to run in this process
+      require('../scripts/renderer.js');
+    </script>
+  </body>
+</html>
