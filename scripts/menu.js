@@ -1,6 +1,36 @@
 const SELECTED_OPTION_CLASS = "menu-selected-option";
 const OPTION_CLASS = "menu-button";
+const CONTAINERS = {
+  'Filtrar' : 'filter-container',
+  'Ordenar' : 'sort-container',
+  'Adicionar' : 'add-container'
+}
+const TEMPLATES = {
+  'Filtrar' : 'templates/_filter_form.html',
+  'Ordenar' : 'templates/_sort_form.html',
+  'Adicionar' : 'templates/_add_form.html'
+}
 
+function getContainerId(key) {
+  return CONTAINERS[key];
+}
+
+function getTemplateName(key) {
+  return TEMPLATES[key];
+}
+
+function initialize() {
+  let allOptions = Array.from(document.getElementsByClassName(OPTION_CLASS));
+  
+  allOptions.forEach(function(option) {
+    let key = option.innerHTML;
+    let container = document.getElementById(getContainerId(key));
+    
+    container.innerHTML = readFile(getTemplateName(key));
+  });
+  
+  updateOptions();
+}
 
 function readFile(filename) {
   var fs = require('fs');
@@ -9,38 +39,18 @@ function readFile(filename) {
   return content;
 }
 
-function getContainerId(key) {
-  let containers = {
-    'Filtrar' : 'filter-container',
-    'Ordenar' : 'sort-container',
-    'Adicionar' : 'add-container'
-  }
-  
-  return containers[key];
-}
-
-function getTemplateName(key) {
-  let templates = {
-    'Filtrar' : '_filter_form',
-    'Ordenar' : '_sort_form',
-    'Adicionar' : '_add_form'
-  }
-  
-  return templates[key];
-}
-
 function openOption(option) {
   let containerId = getContainerId(option.innerHTML);
   let container = document.getElementById(containerId);
-  let content = readFile('templates/' + getTemplateName(option.innerHTML) + '.html');
   
-  container.innerHTML = content;
+  container.style.display = 'block';
 }
 
 function closeOption(option) {
   let containerId = getContainerId(option.innerHTML);
   let container = document.getElementById(containerId);
-  container.innerHTML = "";
+  
+  container.style.display = 'none';
 }
 
 function updateOptions() {
@@ -79,5 +89,6 @@ function optionCliked(caller) {
 
 module.exports = {
   updateOptions : updateOptions,
-  optionCliked : optionCliked
+  optionCliked : optionCliked,
+  initialize : initialize
 }
