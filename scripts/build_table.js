@@ -44,10 +44,28 @@ function insertHtml(html) {
   table.innerHTML = html;
 }
 
-let raw = readRawData();
+function build(shouldFilter) {
+  process.stdout.write("TO NO BUILD\n");
+  
+  let raw = readRawData();
 
-var books = parse(raw);
-books = sortBy(books, 'title');
+  var books = parse(raw);
+  
+  process.stdout.write("> sera q tem q filtra?\n");
+  
+  if (shouldFilter) {
+    process.stdout.write("-> tem q filtra!\n");
+    var filter = require('./filter.js').filter;
+    
+    books = filter(books);
+  }
+  
+  books = sortBy(books, 'title');
 
-html = buildHtml(books);
-insertHtml(html);
+  html = buildHtml(books);
+  insertHtml(html);
+}
+
+module.exports = {
+  build : build
+}
