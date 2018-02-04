@@ -34,6 +34,7 @@ function buildHtml(books) {
     html += "<td>" + currentBook['author'] + "</td>"
     html += "</tr>"
     
+    even = !even;
     return partialHtml += html;
   }, "");
 }

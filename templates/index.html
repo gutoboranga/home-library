@@ -30,11 +30,20 @@
     
     <div class="menu-container">
       <ul class="menu-ul">
-        <li class="menu-button">Filtrar</li>
-        <li class="menu-button">Ordenar</li>
-        <li class="menu-button">Adicionar</li>
+        <li class="menu-button menu-selected-option" onclick="require('../scripts/menu.js').optionCliked(this)">Filtrar</li>
+        <div class="menu-option-container" id="filter-container"></div>
+        
+        <li class="menu-button" onclick="require('../scripts/menu.js').optionCliked(this)">Ordenar</li>
+        <div class="menu-option-container" id="sort-container"></div>
+        
+        <li class="menu-button" onclick="require('../scripts/menu.js').optionCliked(this)">Adicionar</li>
+        <div class="menu-option-container" id="add-container"></div>
       </ul>
     </div>
+    
+    <script>
+      require('../scripts/menu.js').updateOptions();
+    </script>
     
     <script>
       // You can also require other files to run in this process
