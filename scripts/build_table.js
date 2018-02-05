@@ -1,5 +1,9 @@
 var sortBy = require('./sort.js').sortBy;
 
+function initialize() {
+  let raw = readRawData();
+  currentBooks = parse(raw);
+}
 
 function readRawData() {
   var fs = require('fs');
@@ -45,27 +49,25 @@ function insertHtml(html) {
 }
 
 function build(shouldFilter) {
-  process.stdout.write("TO NO BUILD\n");
-  
-  let raw = readRawData();
-
-  var books = parse(raw);
-  
-  process.stdout.write("> sera q tem q filtra?\n");
-  
   if (shouldFilter) {
-    process.stdout.write("-> tem q filtra!\n");
-    var filter = require('./filter.js').filter;
+    // read database again, to avoid interference from previous filters
+    initialize();
     
-    books = filter(books);
+    var filter = require('./filter.js').filter;
+    currentBooks = filter(currentBooks);
   }
   
-  books = sortBy(books, 'title');
+  currentBooks = sortBy(currentBooks, 'title');
 
-  html = buildHtml(books);
+  html = buildHtml(currentBooks);
   insertHtml(html);
 }
 
+// "main" : executed when some file requires build_table.js (not its exported functions)
+var currentBooks = [];
+initialize();
+build(false);
+
 module.exports = {
   build : build
-}
+};
