@@ -1,4 +1,4 @@
-var sortBy = require('./sort.js').sortBy;
+var sort = require('./sort.js').sort;
 
 function initialize() {
   let raw = readRawData();
@@ -57,7 +57,7 @@ function build(shouldFilter) {
     currentBooks = filter(currentBooks);
   }
   
-  currentBooks = sortBy(currentBooks, 'title');
+  currentBooks = sort(currentBooks);
 
   html = buildHtml(currentBooks);
   insertHtml(html);

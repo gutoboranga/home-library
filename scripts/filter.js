@@ -2,9 +2,6 @@ function filter(books) {
   let author = getAuthor();
   let title = getTitle();
   
-  process.stdout.write("-> AUTHOR: " + author + "\n");
-  process.stdout.write("-> TITLE: " + title + "\n");
-  
   return books.filter(function(book) {
     let authorOk = (author == '') || book['author'].includes(author);
     let titleOk = (title == '') || book['title'].includes(title);

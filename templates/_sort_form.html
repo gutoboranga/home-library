@@ -1,7 +1,11 @@
 <div class="sort_content">
   <link rel="stylesheet" type="text/css" href="../style/sort.css">
 
+  <input type="radio" name="sortType" value="title" checked>
+  <label>Por título</label><br>
   
+  <input type="radio" name="sortType" value="author">
+  <label>Por autor</label>
 
-  <br><button align="center" onclick="require('../scripts/build_table.js').build(false);">Aplicar</button>
+  <br><button class="apply_sort_button" onclick="require('../scripts/build_table.js').build(false);">Aplicar</button>
 </div>

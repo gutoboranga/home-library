@@ -17,7 +17,7 @@
   margin-top: 26px;
 }
 
-input {
+.filter_field_input {
   height: 36px;
   width: 100%;
   box-sizing: border-box;

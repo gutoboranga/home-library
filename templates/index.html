@@ -24,16 +24,17 @@
     </div>
     
     <!-- will populate the table -->
-    <script>
+    <!-- <script>
       require('../scripts/build_table.js');
-    </script>
+    </script> -->
+    
     
     <div class="menu-container">
       <ul class="menu-ul">
-        <li class="menu-button menu-selected-option" onclick="require('../scripts/menu.js').optionCliked(this)">Filtrar</li>
+        <li class="menu-button" onclick="require('../scripts/menu.js').optionCliked(this)">Filtrar</li>
         <div class="menu-option-container" id="filter-container"></div>
         
-        <li class="menu-button" onclick="require('../scripts/menu.js').optionCliked(this)">Ordenar</li>
+        <li class="menu-button menu-selected-option" onclick="require('../scripts/menu.js').optionCliked(this)">Ordenar</li>
         <div class="menu-option-container" id="sort-container"></div>
         
         <li class="menu-button" onclick="require('../scripts/menu.js').optionCliked(this)">Adicionar</li>
@@ -43,6 +44,7 @@
     
     <script>
       require('../scripts/menu.js').initialize();
+      require('../scripts/build_table.js');      
     </script>
     
     <script>

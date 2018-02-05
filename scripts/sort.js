@@ -1,22 +1,15 @@
-function byAuthor(books) {
-  return books.sort(function(a, b) {
-    return a['author'] > b['author'];
-  });
-}
-
-function byTitle(books) {
-  return books.sort(function(a, b) {
-    return a['title'] > b['title'];
-  });
-}
-
 function sortBy(books, key) {
   return books.sort(function(a, b) {
     return a[key] > b[key];
   });
 }
 
+function sort(books) {
+  let sortType = document.querySelector('input[name="sortType"]:checked').value;
+  
+  return sortBy(books, sortType);
+}
 
 module.exports = {
-  sortBy: sortBy
+  sort : sort
 }
