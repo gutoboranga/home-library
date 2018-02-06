@@ -10,8 +10,6 @@
   <body>
     
     <div class="table-container">
-      <!-- <button onclick="require('./library.js')">clique aqui</button> -->
-      
       <table id="table_header" class="table">
         <tr>
           <th>Título</th>
@@ -19,15 +17,11 @@
         </tr>
       </table>
       
-      <table id="books_table" class="table">
-      </table>
+      <div class="table-wrapper">
+        <table id="books_table" class="table">
+        </table>
+      </div>
     </div>
-    
-    <!-- will populate the table -->
-    <!-- <script>
-      require('../scripts/build_table.js');
-    </script> -->
-    
     
     <div class="menu-container">
       <ul class="menu-ul">
@@ -44,7 +38,7 @@
     
     <script>
       require('../scripts/menu.js').initialize();
-      require('../scripts/build_table.js');      
+      require('../scripts/build_table.js');
     </script>
     
     <script>

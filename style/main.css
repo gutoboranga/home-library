@@ -10,3 +10,12 @@ ul {
   margin: 0;
   list-style-type: none;
 }
+
+h2 {
+  margin-top: 30px;
+  
+  color: #494864;
+  font-size: 18px;
+  text-align: center;
+  font-weight: lighter;
+}

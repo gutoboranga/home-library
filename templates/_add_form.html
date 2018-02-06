@@ -1,1 +1,16 @@
-<h1>ADD!!!</h1>
+<div class="add_content">
+  <link rel="stylesheet" type="text/css" href="../style/add.css">
+
+  <p class="add_field_label">Autor</p>
+  <input class="add_field_input" type="text" id="author_add_field"><br>
+
+  <p class="add_field_label">Título</p>
+  <input class="add_field_input" type="text" id="title_add_field"><br>
+
+  <br><button align="center" onclick="
+      require('../scripts/add.js').add(function() {
+        require('../scripts/build_table.js').initialize();
+        require('../scripts/build_table.js').build(false);
+      });"
+      >Adicionar</button>
+</div>

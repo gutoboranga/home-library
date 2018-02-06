@@ -1,28 +1,7 @@
 var sort = require('./sort.js').sort;
 
 function initialize() {
-  let raw = readRawData();
-  currentBooks = parse(raw);
-}
-
-function readRawData() {
-  var fs = require('fs');
-  var text = fs.readFileSync("database.txt", { encoding: 'utf8' });
-  
-  return text.toLowerCase();
-}
-
-function parse(raw) {
-  lines = raw.split('\n');
-  
-  return lines.map(function(element) {
-    fields = element.split(' | ');
-    
-    return {
-      'author' : fields[0],
-      'title' : fields[1],
-    }
-  });
+  currentBooks = require('./database.js').getBooks();
 }
 
 function buildHtml(books) {
@@ -57,6 +36,12 @@ function build(shouldFilter) {
     currentBooks = filter(currentBooks);
   }
   
+  if (typeof currentBooks === 'undefined') {
+    insertHtml('<h2>Nenhum livro cadastrado.</h2>');
+    return;
+  }
+  
+  process.stdout.write("BOOKS OK\n");
   currentBooks = sort(currentBooks);
 
   html = buildHtml(currentBooks);
@@ -69,5 +54,6 @@ initialize();
 build(false);
 
 module.exports = {
+  initialize : initialize,
   build : build
 };
