@@ -25,3 +25,19 @@
   
   cursor: pointer;
 }
+
+.menu-ul {
+  height: 100%;
+}
+
+#filter-container {
+  height: calc(100% - 216px);
+}
+
+#sort-container{
+  height: calc(100% - (200px));
+}
+
+#add-container {
+  height: 100%;
+}

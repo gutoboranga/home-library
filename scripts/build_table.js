@@ -22,6 +22,16 @@ function buildHtml(books) {
   }, "");
 }
 
+function adjustTableHeader() {
+  let booksTable = document.getElementById('books_table');
+  
+  let titleWidth = booksTable.rows[0].cells[0].offsetWidth;
+  let authorWidth = booksTable.rows[0].cells[1].offsetWidth;
+  
+  document.getElementById('table_title_header').width = titleWidth;
+  document.getElementById('table_author_header').width = authorWidth;
+}
+
 function insertHtml(html) {
   var table = document.getElementById('books_table');
   table.innerHTML = html;
@@ -41,11 +51,11 @@ function build(shouldFilter) {
     return;
   }
   
-  process.stdout.write("BOOKS OK\n");
   currentBooks = sort(currentBooks);
 
   html = buildHtml(currentBooks);
   insertHtml(html);
+  adjustTableHeader();
 }
 
 // "main" : executed when some file requires build_table.js (not its exported functions)
