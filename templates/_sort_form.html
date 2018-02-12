@@ -5,7 +5,13 @@
   <label>Por título</label><br>
   
   <input type="radio" name="sortType" value="author">
-  <label>Por autor</label>
+  <label>Por autor</label><br>
+  
+  <input type="radio" name="sortType" value="publishingHouse">
+  <label>Por editora</label><br>
+  
+  <input type="radio" name="sortType" value="year">
+  <label>Por ano</label>
 
   <br><button class="apply_sort_button" onclick="require('../scripts/build_table.js').build(false);">Aplicar</button>
 </div>

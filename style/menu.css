@@ -35,9 +35,9 @@
 }
 
 #sort-container{
-  height: calc(100% - (200px));
+  height: calc(100% - 200px);
 }
 
 #add-container {
-  height: 100%;
+  height: calc(100% - 200px);
 }

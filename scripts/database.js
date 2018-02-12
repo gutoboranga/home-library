@@ -24,7 +24,7 @@ function addBook(book) {
 }
 
 function stringify(book) {
-  return book['author'] + " | " + book['title'];
+  return book['author'] + " | " + book['title'] + " | " + book['publishingHouse'] + " | " + book['year'];
 }
 
 function readRawData() {
@@ -43,6 +43,8 @@ function parse(raw) {
     return {
       'author' : fields[0],
       'title' : fields[1],
+      'publishingHouse' : fields[2],
+      'year' : fields[3],
     }
   });
 }

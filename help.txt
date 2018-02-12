@@ -1,0 +1,16 @@
+Lugares que necessitam de alteração caso se altere a estrutura de dados dos livros:
+
+-database.js: parse(), stringify()
+-build_table.js: builHtml(), adjustTableHeader()
+-filter.js: filter() + criar getters
+-add.js: add(), stringify(), cleanFields()
+
+-templates/_fiter_form.html: adicionar nova opção de filtragem
+-templates/_sort_form.html: adicionar nova opção de ordenação
+-templates/_add_form.html: adicionar novo campo para dados
+-templates/index.html: adicionar na table_header os novos campos
+
+
+Mudar:
+
+add-container height has to be fixed

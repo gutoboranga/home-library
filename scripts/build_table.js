@@ -12,9 +12,13 @@ function buildHtml(books) {
     var itemClass = even ? "clear" : "dark";
     var html = ""
     
+    // html += '<p>' + currentBook['title'] + " | " + currentBook['publishingHouse'] + '</p>';
+    
     html += "<tr class=\"" + itemClass + "\">"
     html += "<td>" + currentBook['title'] + "</td>"
     html += "<td>" + currentBook['author'] + "</td>"
+    html += "<td>" + currentBook['publishingHouse'] + "</td>"
+    html += "<td>" + currentBook['year'] + "</td>"
     html += "</tr>"
     
     even = !even;
@@ -27,9 +31,13 @@ function adjustTableHeader() {
   
   let titleWidth = booksTable.rows[0].cells[0].offsetWidth;
   let authorWidth = booksTable.rows[0].cells[1].offsetWidth;
+  let publishingHouseWidth = booksTable.rows[0].cells[2].offsetWidth;
+  let yearWidth = booksTable.rows[0].cells[3].offsetWidth;
   
   document.getElementById('table_title_header').width = titleWidth;
   document.getElementById('table_author_header').width = authorWidth;
+  document.getElementById('table_publishing_house_header').width = publishingHouseWidth;
+  document.getElementById('table_year_header').width = yearWidth;
 }
 
 function insertHtml(html) {
@@ -51,9 +59,9 @@ function build(shouldFilter) {
     return;
   }
   
-  currentBooks = sort(currentBooks);
+  let sortedBooks = sort(JSON.parse(JSON.stringify(currentBooks)));
 
-  html = buildHtml(currentBooks);
+  html = buildHtml(sortedBooks);
   insertHtml(html);
   adjustTableHeader();
 }

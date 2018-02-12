@@ -11,8 +11,8 @@ function sortByKey(array, key) {
         {
             y = (""+y).toLowerCase();
         }
-
-        return ((x < y) ? -1 : ((x > y) ? 1 : 0));
+        
+        return result = ((x < y) ? -1 : ((x > y) ? 1 : 0));
     });
 }
 
