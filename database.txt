@@ -1,7 +1,12 @@
-AUTHOR NAME | BOOK_NAME
-ANOHER AUTHOR NAME | book
-o cara que escreveu o livro | titulo do livro
-autor esperto | livroooo
-um cara | livrinho
-nome do maluco | outro livro
-Ronaldinho Gaucho | Como ser bom nos dibre
+AUTHOR NAME | f
+ANOHER AUTHOR NAME | e
+o cara que escreveu o livro | d
+autor esperto | s
+um cara | c
+nome do maluco | b
+Ronaldinho Gaucho | a
+um autor | g
+antonio | h
+milka | i
+maia | z
+sorvete | r

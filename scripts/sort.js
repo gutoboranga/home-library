@@ -1,13 +1,25 @@
-function sortBy(books, key) {
-  return books.sort(function(a, b) {
-    return a[key] > b[key];
-  });
+function sortByKey(array, key) {
+    return array.sort(function(a, b) {
+        var x = a[key];
+        var y = b[key];
+
+        if (typeof x == "string")
+        {
+            x = (""+x).toLowerCase();
+        }
+        if (typeof y == "string")
+        {
+            y = (""+y).toLowerCase();
+        }
+
+        return ((x < y) ? -1 : ((x > y) ? 1 : 0));
+    });
 }
 
 function sort(books) {
-  let sortType = document.querySelector('input[name="sortType"]:checked').value;
+  let key = document.querySelector('input[name="sortType"]:checked').value;
   
-  return sortBy(books, sortType);
+  return sortByKey(books, key);
 }
 
 module.exports = {
